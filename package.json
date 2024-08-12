@@ -1,0 +1,19 @@
+{
+  "name": "react-utils",
+  "version": "1.0.0",
+  "description": "React에서 사용 가능한 Utils 패키지",
+  "keywords": [],
+  "author": "univdev<pcydeveloper@gmail.com>",
+  "scripts": {
+    "lint": "turbo lint",
+    "lint:fix": "cd apps/client; pnpm lint --fix; cd ../../packages/ui; pnpm lint --fix",
+    "dev": "turbo dev"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.12"
+  },
+  "packageManager": "pnpm@8.15.6",
+  "engines": {
+    "node": ">=18"
+  }
+}

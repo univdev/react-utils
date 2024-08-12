@@ -1,0 +1,17 @@
+{
+  "name": "@react-utils/eslint-react",
+  "version": "1.0.0",
+  "description": "React 프로젝트를 위한 eslint 설정파일 입니다.",
+  "keywords": [],
+  "author": "univdev<pcydeveloper@gmail.com>",
+  "license": "ISC",
+  "files": [
+    "./react.js"
+  ],
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "eslint-plugin-unused-imports": "^4.1.3",
+    "typescript-eslint": "^8.0.0"
+  }
+}
