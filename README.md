@@ -16,7 +16,7 @@ React 기반 프로젝트 수행 시 필요한 코드를 업로드합니다.
 2. `package.json` 파일의 `dependencies` 목록을 아래와 같이 작성합니다.
 ```json
   "dependencies": {
-    "@react-utils/utils": "workspace:*",
+    "@simple-react-utils/utils": "workspace:*",
   },
 ```
 3. `pnpm install` 명령어를 Root에서 입력하여 심볼릭 링크를 생성합니다.
@@ -31,7 +31,7 @@ import globals from "globals";
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
-import { default as extended } from '@react-utils/eslint-react/react-esm.mjs';
+import { default as extended } from '@simple-react-utils/eslint-react/react-esm.mjs';
 
 export default [
   {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
