@@ -13,13 +13,13 @@ export type IDialogItem =
 export type IDefaultDialogItem = {
   open: boolean;
   type: 'alert' | 'dynamic';
+  title: ReactNode;
   dialogProps?: DialogProps;
   onClose?: () => void;
 };
 
 export type IAlertDialogItem = {
   type: 'alert';
-  title: ReactNode;
   message: ReactNode;
   confirmButtonLabel?: string;
   cancelButtonLabel?: string;

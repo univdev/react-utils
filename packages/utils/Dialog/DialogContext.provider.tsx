@@ -2,12 +2,20 @@ import { FC, Fragment, ReactNode, useCallback, useState } from "react";
 import { match } from 'ts-pattern';
 import { DialogContext, IDialogItem, IDialogPropsWithoutOpen } from "./DialogContext";
 import { Dialog } from "./Dialog";
+import { DialogTitle } from "./DialogTitle";
+import { Typography } from "../Typography";
+import { DialogContent } from "./DialogContent";
+import { DialogActions } from "./DialogActions";
+import { Button } from "../Button";
+import { Flex } from "../Flex";
+import { useTheme } from "../useTheme";
 
 export type DialogContextProviderProps = { children?: ReactNode };
 
 export const DialogContextProvider: FC<DialogContextProviderProps> = ({
   children,
 }) => {
+  const theme = useTheme();
   const [items, setItems] = useState<Map<number, IDialogItem>>(new Map());
 
   const remove = useCallback((index: number) => {
@@ -50,15 +58,41 @@ export const DialogContextProvider: FC<DialogContextProviderProps> = ({
             }}
           >
             {
-              match({ type: props.type })
-                .with({ type: 'alert' }, () => (
+              match({ ...props })
+                .with({ type: 'alert' }, ({ title, message, confirmButtonLabel, cancelButtonLabel, onConfirm, onCancel }) => (
                   <Fragment>
-                    asd
+                    <DialogTitle>
+                      { title }
+                    </DialogTitle>
+                    <DialogContent>
+                      <Typography variant="Body/2_Regular_14px">
+                        { message }
+                      </Typography>
+                    </DialogContent>
+                    <DialogActions>
+                      <Flex fullWidth columnGap={theme.spacing(4)} alignItems="center" justifyContent="space-between">
+                        <Button variant="contained" color="info" fullWidth onClick={onCancel}>
+                          { cancelButtonLabel }
+                        </Button>
+                        <Button variant="contained" color="primary" fullWidth onClick={onConfirm}>
+                          { confirmButtonLabel }
+                        </Button>
+                      </Flex>
+                    </DialogActions>
                   </Fragment>
                 ))
-                .with({ type: 'dynamic' }, () => (
+                .with({ type: 'dynamic' }, ({ title, component }) => (
                   <Fragment>
-                    qwe
+                    <DialogTitle>
+                      { title }
+                    </DialogTitle>
+                    <DialogContent>
+                      {
+                        typeof component === 'function'
+                          ? component({ close: () => onClose(index, props) })
+                          : component
+                      }
+                    </DialogContent>
                   </Fragment>
                 ))
                 .otherwise(() => false)
