@@ -1,16 +1,8 @@
-// const { Command } = require('commander');
 import { Command } from 'commander';
-// const rootPackageJson = require('../../package.json');
-import rootPackageJson from '../../package.json' with { type: 'json' };
-// const packageJson = require('./package.json');
 import packageJson from './package.json' with { type: 'json' };
-// const { exec } = require('node:child_process');
 import { exec } from 'node:child_process';
-// const { Glob } = require('glob');
 import { Glob } from 'glob';
-// const fs = require('node:fs');
 import fs from 'node:fs';
-// const chalk = require('chalk');
 import chalk from 'chalk';
 
 function gitClone(packageName) {
@@ -30,7 +22,7 @@ function changePackageNames(packageName) {
   
     for (const file of g) {
       fs.readFile(file, 'utf8', (_, data) => {
-        const updatedData = data.replace(rootPackageJson.packageName, packageName);
+        const updatedData = data.replace('simple-react-utils', packageName);
   
         fs.writeFile(file, updatedData, 'utf8', (err) => console.error(err));
       });
