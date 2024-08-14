@@ -15,6 +15,7 @@ export * from './Switch';
 export * from './Button';
 export * from './AspectRatio';
 export * from './withLoader';
+export * from './Dialog';
 
 /** Components by MUI */
 export { default as Avatar } from '@mui/material/Avatar';
@@ -22,7 +23,6 @@ export { default as Accordion } from '@mui/material/Accordion';
 export { default as Alert } from '@mui/material/Alert';
 export { default as Badge } from '@mui/material/Badge';
 export { default as Checkbox } from '@mui/material/Checkbox';
-export { default as Dialog, dialogClasses } from '@mui/material/Dialog';
 export type { DialogProps } from '@mui/material/Dialog'; 
 export { default as Radio } from '@mui/material/Radio';
 export { default as RadioGroup } from '@mui/material/RadioGroup';

@@ -10,13 +10,18 @@ React 기반 프로젝트 수행 시 필요한 코드를 업로드합니다.
 ## Package Manager
 본 패키지는 `pnpm@8.15.6` 에서 정상 동작합니다.
 
+## 프로젝트 쉽게 설정하는 방법
+```sh
+pnpm dlx create-simple-react-utils [package-name]
+```
+
 ## 모노레포에서 의존성 설정하는 방법
 프로젝트를 개설하고 의존성을 연결해야 해당 패키지를 사용하실 수 있습니다.  
 1. `apps` 폴더에 프로젝트를 생성합니다.
 2. `package.json` 파일의 `dependencies` 목록을 아래와 같이 작성합니다.
 ```json
   "dependencies": {
-    "@react-utils/utils": "workspace:*",
+    "@simple-react-utils/utils": "workspace:*",
   },
 ```
 3. `pnpm install` 명령어를 Root에서 입력하여 심볼릭 링크를 생성합니다.
@@ -31,7 +36,7 @@ import globals from "globals";
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
-import { default as extended } from '@react-utils/eslint-react/react-esm.mjs';
+import { default as extended } from '@simple-react-utils/eslint-react/react-esm.mjs';
 
 export default [
   {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
