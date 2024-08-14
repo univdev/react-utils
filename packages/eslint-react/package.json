@@ -1,5 +1,5 @@
 {
-  "name": "@react-utils/eslint-react",
+  "name": "@simple-react-utils/eslint-react",
   "version": "1.0.0",
   "description": "React 프로젝트를 위한 eslint 설정파일 입니다.",
   "keywords": [],
