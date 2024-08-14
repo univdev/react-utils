@@ -12,6 +12,9 @@
   "devDependencies": {
     "turbo": "^2.0.12"
   },
+  "bin": {
+    "create-simple-react-utils": "./packages/create-simple-react-utils/runner.js"
+  },
   "packageManager": "pnpm@8.15.6",
   "engines": {
     "node": ">=18"
