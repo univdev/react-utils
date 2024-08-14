@@ -41,6 +41,14 @@ function changePackageNames(packageName) {
   });
 }
 
+function removePackageRunner(packageName) {
+  return new Promise((resolve) => {
+    return fs.rmdir(`./${packageName}/packages/create-simple-react-utils`, () => {
+      resolve();
+    });
+  });
+}
+
 function init() {
   const program = new Command();
 
@@ -53,6 +61,7 @@ function init() {
       console.log(chalk.green('simple-react-utils 패키지 설정을 시작합니다.'));
       gitClone(name)
         .then(() => changePackageNames(name))
+        .then(() => removePackageRunner(name))
         .then(() => {
           console.log('------------------------------');
           console.log(chalk.green.bold('패키지 설정이 완료 되었습니다.'))
