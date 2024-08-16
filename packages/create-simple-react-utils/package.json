@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "create-simple-react-utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "simple-react-utils를 쉽게 설치할 수 있도록 도와주는 패키지",
   "bin": {
     "create-simple-react-utils": "./runner.js"
