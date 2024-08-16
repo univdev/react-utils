@@ -15,6 +15,15 @@ function gitClone(packageName) {
   });
 }
 
+function removeOriginalGitFiles(packageName) {
+  console.log(chalk.green(`${packageName} 폴더 내에 설정 된 기존 git 파일을 제거합니다.`));
+  return new Promise((resolve) => {
+    fs.rmdir(`./${packageName}/.git`, () => {
+      resolve(true);
+    });
+  }, []);
+}
+
 function changePackageNames(packageName) {
   return new Promise((resolve) => {
     console.log(chalk.green('패키지 이름을 변경하고 있습니다.'));
@@ -52,6 +61,7 @@ function init() {
     .action((name) => {
       console.log(chalk.green('simple-react-utils 패키지 설정을 시작합니다.'));
       gitClone(name)
+        .then(() => removeOriginalGitFiles(name))
         .then(() => changePackageNames(name))
         .then(() => removePackageRunner(name))
         .then(() => {
